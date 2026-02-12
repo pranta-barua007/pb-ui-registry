@@ -139,7 +139,7 @@ async function buildRegistry() {
     // Update main registry.json manifest
     const manifest = {
         "$schema": "https://ui.shadcn.com/schema/registry.json",
-        "name": "halp-ui-registry",
+        "name": "pb-ui-registry",
         "homepage": homepage,
         "items": items.map(item => ({
             name: item.name,

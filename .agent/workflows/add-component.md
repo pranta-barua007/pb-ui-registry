@@ -1,5 +1,5 @@
 ---
-description: How to add a new component to the Halp UI Registry
+description: How to add a new component to the UI Registry
 ---
 
 Follow these steps to add a new component to the registry. This ensures the component is correctly registered, documented, and available for users.

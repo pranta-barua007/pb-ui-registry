@@ -1,13 +1,13 @@
 ---
 title: Introduction
-description: Welcome to Halp UI Registry - A collection of reusable React components built with shadcn/ui and Base UI primitives.
+description: Welcome to PB UI Registry - A collection of reusable React components built with shadcn/ui and Base UI primitives.
 ---
 
-# Welcome to Halp UI Registry
+# Welcome to PB UI Registry
 
-Halp UI Registry is a curated collection of reusable React components built with **shadcn/ui v2** and **Base UI** primitives, styled with **Tailwind CSS v4**.
+PB UI Registry is a curated collection of reusable React components built with **shadcn/ui v2** and **Base UI** primitives, styled with **Tailwind CSS v4**.
 
-## What is Halp UI Registry?
+## What is PB UI Registry?
 
 This registry provides custom, production-ready components that you can easily add to your projects using the shadcn CLI. All components are:
 

@@ -12,7 +12,7 @@ export default defineConfig({
 	base: process.env.NODE_ENV === 'production' ? GITHUB_REPO_NAME : undefined,
 	integrations: [
 		starlight({
-			title: 'Halp UI Registry',
+			title: 'PB UI Registry',
 			customCss: ['./src/styles/global.css'],
 			social: [{ icon: 'github', label: 'GitHub', href: GITHUB_REPO_URL }],
 			sidebar: [

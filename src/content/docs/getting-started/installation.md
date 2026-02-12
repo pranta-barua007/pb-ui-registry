@@ -1,11 +1,11 @@
 ---
 title: Installation
-description: How to install and use components from Halp UI Registry in your project.
+description: How to install and use components from PB UI Registry in your project.
 ---
 
 # Installation
 
-Learn how to add components from Halp UI Registry to your project.
+Learn how to add components from PB UI Registry to your project.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ For easier installation, configure the registry in your `components.json`:
 ```json
 {
   "registries": {
-    "halp": "https://pranta-barua007.github.io/pb-ui-registry/r"
+    "pb": "https://pranta-barua007.github.io/pb-ui-registry/r"
   }
 }
 ```
@@ -54,7 +54,7 @@ For easier installation, configure the registry in your `components.json`:
 Then install components using the namespace:
 
 ```bash
-npx shadcn@latest add @halp/component-name
+npx shadcn@latest add @pb/component-name
 ```
 
 ## Usage
