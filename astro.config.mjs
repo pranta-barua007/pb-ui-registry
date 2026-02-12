@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import { GITHUB_REPO_NAME, GITHUB_REPO_URL } from 'env';
+import { GITHUB_REPO_NAME, GITHUB_REPO_URL } from './environment.js';
 
 
 // https://astro.build/config

@@ -1,4 +1,5 @@
 // Scripts/build-registry.js';
+import { SERVER_URL } from '../environment.js';
 import fs from 'fs';
 import path from 'path';
 import { Project } from 'ts-morph'; // Requires pnpm add -D ts-morph
@@ -69,7 +70,7 @@ async function buildRegistry() {
     const localComponentNames = new Set(itemDirs);
 
     // Get homepage from existing registry.json or use default
-    let homepage = "http://localhost:4321"
+    let homepage = SERVER_URL
 
     if (fs.existsSync(REGISTRY_JSON_PATH)) {
         try {
