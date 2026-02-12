@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select"
 import { Loader2Icon, SettingsIcon } from "lucide-react"
 import { OpenInV0Button } from "@/components/open-in-v0-button"
-import { SERVER_URL } from "@/data/env"
+import { SERVER_URL_CLIENT_SIDE as SERVER_URL } from "../../../../environment.js"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import {
     ICON_LIBRARIES,
