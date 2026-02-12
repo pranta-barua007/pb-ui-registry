@@ -2,13 +2,13 @@
 name: Deploy Astro Starlight site to GitHub Pages
 
 on:
-  # Runs on pushes targeting the main branch
+  # Trigger the workflow every time you push to the `main` branch
   push:
     branches: ["main"]
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -23,29 +23,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
-        uses: withastro/action@v3
+        uses: withastro/action@v5
         with:
           # If your project is in a subfolder, you can uncomment this line
-          # project-path: ./website
-          astro-build-command: "pnpm build"
-          astro-dist-directory: "dist"
+          # path: .
           node-version: 20
           package-manager: pnpm@latest
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
+          build-cmd: "pnpm build"
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment-url.outputs.url }}
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment-url
+        id: deployment
         uses: actions/deploy-pages@v4
