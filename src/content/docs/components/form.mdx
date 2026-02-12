@@ -1,0 +1,39 @@
+---
+title: Form
+description: Building forms with React Hook Form and Zod.
+---
+
+import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
+import InstallationTabs from "@/components/markdown/installation-tabs/installation-tabs.astro"
+
+<CodePreview demo="form/form-demo" />
+
+## Installation
+
+<InstallationTabs registryItem="form" />
+
+## Usage
+
+```tsx
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+```
+
+```tsx
+const form = useForm({
+  resolver: zodResolver(formSchema),
+})
+```

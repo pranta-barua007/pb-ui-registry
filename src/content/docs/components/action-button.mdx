@@ -1,0 +1,30 @@
+---
+title: Action Button
+description: A button that performs an async action with loading state and optional confirmation.
+---
+
+import CodePreview from "@/components/markdown/code-preview/code-preview.astro"
+import InstallationTabs from "@/components/markdown/installation-tabs/installation-tabs.astro"
+
+<CodePreview demo="action-button/demo" />
+
+## Installation
+
+<InstallationTabs registryItem="action-button" />
+
+## Usage
+
+```tsx
+import { ActionButton } from "@/components/ui/action-button"
+```
+
+```tsx
+<ActionButton
+  action={async () => {
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+    alert("Action completed!")
+  }}
+>
+  Click me
+</ActionButton>
+```

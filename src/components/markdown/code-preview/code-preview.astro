@@ -1,0 +1,37 @@
+---
+import { Code } from "@astrojs/starlight/components"
+import fs from "node:fs/promises"
+import { CodePreviewInternal } from "./_code-preview-internal"
+
+interface Props {
+  demo: string;
+}
+
+const { demo } = Astro.props
+const [componentName, demoName] = demo.split("/")
+
+// Read file content
+const filePath = `./src/registry/new-york/items/${componentName}/${demoName}.tsx`
+let fileContents = "";
+try {
+    fileContents = await fs.readFile(filePath, "utf-8")
+    // Cleanup imports for display
+    fileContents = fileContents.replace(
+        new RegExp(`@/registry/new-york/items/${componentName}/components/${componentName}`, "g"),
+        `@/components/ui/${componentName}`
+    )
+} catch (e) {
+    fileContents = `// Error reading file: ${filePath}`;
+    console.error(e);
+}
+---
+
+<div class="my-6">
+  <CodePreviewInternal demo={demo} client:load>
+    <Code
+      code={fileContents}
+      lang="tsx"
+      wrap
+    />
+  </CodePreviewInternal>
+</div>

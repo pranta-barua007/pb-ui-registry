@@ -1,0 +1,65 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "halp-ui-registry",
+  "homepage": "http://localhost:4321",
+  "items": [
+    {
+      "name": "action-button",
+      "type": "registry:component",
+      "title": "Action Button",
+      "description": "A custom Action Button component.",
+      "dependencies": [
+        "react",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "button",
+        "http://localhost:4321/r/loading-swap.json",
+        "alert-dialog"
+      ],
+      "files": [
+        {
+          "path": "src/registry/new-york/items/action-button/components/action-button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:component",
+      "title": "Form",
+      "description": "A custom Form component.",
+      "dependencies": [
+        "react",
+        "radix-ui",
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "label"
+      ],
+      "files": [
+        {
+          "path": "src/registry/new-york/items/form/components/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "loading-swap",
+      "type": "registry:component",
+      "title": "Loading Swap",
+      "description": "A custom Loading Swap component.",
+      "dependencies": [
+        "lucide-react",
+        "react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/registry/new-york/items/loading-swap/components/loading-swap.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

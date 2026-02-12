@@ -1,0 +1,43 @@
+---
+title: Halp UI Registry
+description: A collection of reusable React components built with shadcn/ui and Base UI primitives.
+hero:
+  tagline: Reusable components built with Base UI and Tailwind v4.
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Get Started
+      link: /getting-started/installation
+      icon: right-arrow
+      variant: primary
+    - text: Browse Components
+      link: /components/action-button
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Features
+
+<CardGrid stagger>
+  <Card title="Tailwind CSS v4" icon="pencil">
+    Built with the latest Tailwind CSS v4 using CSS-first configuration and OKLCH colors.
+  </Card>
+  <Card title="Base UI Primitives" icon="add-document">
+    Constructed on top of Base UI (by MUI), the successor to Radix UI, for maximum accessibility.
+  </Card>
+  <Card title="Copy & Paste" icon="setting">
+    Own your code. Components are copied to your project, giving you full control over customization.
+  </Card>
+  <Card title="Fully Typed" icon="open-book">
+    Written in TypeScript with complete type definitions for a seamless development experience.
+  </Card>
+</CardGrid>
+
+## Components
+
+Check out the available components in the sidebar or browse them below:
+
+- [Action Button](/components/action-button) - Async button with loading state and confirmation.
+- Loading Swap - Layout-stable loading spinner (utility).
