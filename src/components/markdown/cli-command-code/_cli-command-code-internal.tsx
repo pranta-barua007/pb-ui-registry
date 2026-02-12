@@ -40,23 +40,23 @@ export function CliCommandCodeInternal({
     }
 
     return (
-        <Card className="not-content bg-zinc-950 p-0">
+        <Card className="not-content bg-background p-0 overflow-hidden">
             <CardContent className="p-0">
                 <Tabs
                     value={selectedTab}
                     onValueChange={setSelectedTab}
                     className="gap-0"
                 >
-                    <div className="flex items-center border-b border-zinc-800 px-3 py-1">
-                        <div className="mr-2 flex size-4 items-center justify-center bg-zinc-800/70 rounded-sm">
-                            <TerminalIcon className="size-3 text-zinc-400" />
+                    <div className="flex items-center border-b bg-muted/30 px-3 py-1">
+                        <div className="mr-2 flex size-4 items-center justify-center bg-muted rounded-sm">
+                            <TerminalIcon className="size-3 text-muted-foreground" />
                         </div>
                         <TabsList className="h-auto bg-transparent p-0 font-mono">
                             {commands.map((command, index) => (
                                 <TabsTrigger
                                     key={index}
                                     value={command.label}
-                                    className="h-auto rounded-none border-b-2 border-transparent bg-transparent px-3 py-1 text-xs text-zinc-400 shadow-none data-[state=active]:border-zinc-400 data-[state=active]:bg-zinc-800/50 data-[state=active]:text-zinc-100 data-[state=active]:shadow-none"
+                                    className="h-auto rounded-none border-b-2 border-transparent bg-transparent px-3 py-1 text-xs text-muted-foreground shadow-none data-[state=active]:border-primary data-[state=active]:bg-primary/10 data-[state=active]:text-primary data-[state=active]:shadow-none"
                                 >
                                     {command.label}
                                 </TabsTrigger>
@@ -68,14 +68,14 @@ export function CliCommandCodeInternal({
                                     <Button
                                         onClick={handleCopy}
                                         variant="ghost"
-                                        className="ml-auto size-6 h-6 w-6 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100"
+                                        className="ml-auto size-6 h-6 w-6 text-muted-foreground hover:bg-muted hover:text-foreground"
                                     >
                                         {copyState === "idle" ? (
                                             <ClipboardIcon className="size-3" />
                                         ) : copyState === "copied" ? (
                                             <CheckIcon className="size-3" />
                                         ) : (
-                                            <XIcon className="size-3 text-red-500" />
+                                            <XIcon className="size-3 text-destructive" />
                                         )}
                                         <span className="sr-only">Copy</span>
                                     </Button>
@@ -86,15 +86,15 @@ export function CliCommandCodeInternal({
                             </Tooltip>
                         </TooltipProvider>
                     </div>
-                    <div>
+                    <div className="bg-muted/50 dark:bg-zinc-950/50">
                         {commands.map(command => (
                             <TabsContent
                                 key={command.label}
                                 value={command.label}
-                                className="mt-0 no-scrollbar overflow-x-auto py-3.5 text-zinc-100"
+                                className="mt-0 no-scrollbar overflow-x-auto py-3.5"
                             >
                                 <pre className="mb-0 mt-0">
-                                    <code className="bg-transparent px-4 py-0 text-sm font-mono text-zinc-100">{command.code}</code>
+                                    <code className="bg-transparent px-4 py-0 text-sm font-mono text-foreground">{command.code}</code>
                                 </pre>
                             </TabsContent>
                         ))}
