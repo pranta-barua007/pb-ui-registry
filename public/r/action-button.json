@@ -9,7 +9,7 @@
   ],
   "registryDependencies": [
     "button",
-    "http://localhost:4321/r/loading-swap.json",
+    "https://pranta-barua007.github.io/pb-ui-registry/r/loading-swap.json",
     "alert-dialog"
   ],
   "files": [

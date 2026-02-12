@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "halp-ui-registry",
-  "homepage": "http://localhost:4321",
+  "homepage": "https://pranta-barua007.github.io/pb-ui-registry",
   "items": [
     {
       "name": "action-button",
@@ -14,7 +14,7 @@
       ],
       "registryDependencies": [
         "button",
-        "http://localhost:4321/r/loading-swap.json",
+        "https://pranta-barua007.github.io/pb-ui-registry/r/loading-swap.json",
         "alert-dialog"
       ],
       "files": [

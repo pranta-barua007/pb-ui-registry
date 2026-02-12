@@ -6,11 +6,9 @@ import { useLocalStorage } from "@/hooks/useLocalStorage"
 export function InstallationTabsInternal({
     children,
     cliSteps,
-    cliStepsExperimental,
 }: {
     children: ReactNode
     cliSteps: ReactNode
-    cliStepsExperimental?: ReactNode
 }) {
     const [selectedTab, setSelectedTab] = useLocalStorage(
         "installation-method",

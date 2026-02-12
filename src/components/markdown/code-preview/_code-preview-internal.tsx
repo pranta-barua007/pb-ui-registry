@@ -41,7 +41,7 @@ export function CodePreviewInternal({
 }) {
     const componentName = demo.split("/")[0]
     const demoName = demo.split("/")[1]
-    const Component = getComponent(componentName, demoName)
+    const Component = getComponentCached(componentName, demoName)
     const [iconLibrary, setIconLibrary] = useLocalStorage<IconLibrary>(
         "preferred-icon-library",
         "lucide",
@@ -119,27 +119,35 @@ export function CodePreviewInternal({
     )
 }
 
-function getComponent(component: string, demo: string) {
+const componentCache: Record<string, React.LazyExoticComponent<React.ComponentType>> = {}
+
+function getComponentCached(component: string, demo: string) {
+    const path = `../../../registry/new-york/items/${component}/${demo}.tsx`
+    if (componentCache[path]) return componentCache[path]
+
     // We need to use glob import for dynamic imports in Vite/Astro
     const modules = import.meta.glob('../../../registry/new-york/items/**/*.tsx')
+    const importer = modules[path]
 
-    return lazy(async () => {
-        // Construct path matching the glob
-        const path = `../../../registry/new-york/items/${component}/${demo}.tsx`
-        const importer = modules[path]
+    if (!importer) {
+        console.error(`Demo not found: ${path}`)
+        const ErrorComponent = () => <div>Demo not found: {path}</div>
+        const lazyError = lazy(async () => ({ default: ErrorComponent }))
+        componentCache[path] = lazyError
+        return lazyError
+    }
 
-        if (!importer) {
-            console.error(`Demo not found: ${path}`)
-            return { default: () => <div>Demo not found: {path}</div> }
-        }
-
-        const module: any = await importer()
+    const lazyComponent = lazy(async () => {
+        const module = (await importer()) as { default?: React.ComponentType;[key: string]: unknown }
         // Assume default export or first named export
         const namedExport = Object.keys(module).find(
             key => typeof module[key] === "function" && key !== "default"
         )
         return {
-            default: module.default ?? (namedExport ? module[namedExport] : () => <div>No component found</div>),
+            default: module.default ?? (namedExport ? (module[namedExport] as React.ComponentType) : () => <div>No component found</div>),
         }
     })
+
+    componentCache[path] = lazyComponent
+    return lazyComponent
 }

@@ -11,17 +11,16 @@ const { demo } = Astro.props
 const [componentName, demoName] = demo.split("/")
 
 // Read file content
-const filePath = `./src/registry/new-york/items/${componentName}/${demoName}.tsx`
 let fileContents = "";
 try {
-    fileContents = await fs.readFile(filePath, "utf-8")
+    const rawContent = await fs.readFile(`./src/registry/new-york/items/${componentName}/${demoName}.tsx`, "utf-8")
     // Cleanup imports for display
-    fileContents = fileContents.replace(
+    fileContents = rawContent.replace(
         new RegExp(`@/registry/new-york/items/${componentName}/components/${componentName}`, "g"),
         `@/components/ui/${componentName}`
     )
 } catch (e) {
-    fileContents = `// Error reading file: ${filePath}`;
+    fileContents = `// Error reading file`;
     console.error(e);
 }
 ---

@@ -69,15 +69,8 @@ async function buildRegistry() {
     const itemDirs = fs.readdirSync(REGISTRY_ITEMS_DIR).filter(d => fs.statSync(path.join(REGISTRY_ITEMS_DIR, d)).isDirectory());
     const localComponentNames = new Set(itemDirs);
 
-    // Get homepage from existing registry.json or use default
-    let homepage = SERVER_URL
-
-    if (fs.existsSync(REGISTRY_JSON_PATH)) {
-        try {
-            const existingData = JSON.parse(fs.readFileSync(REGISTRY_JSON_PATH, 'utf8'));
-            if (existingData.homepage) homepage = existingData.homepage;
-        } catch (e) { }
-    }
+    // Use SERVER_URL from environment.js as the source of truth
+    let homepage = SERVER_URL;
 
     const items = [];
 

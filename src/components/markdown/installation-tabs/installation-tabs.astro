@@ -25,7 +25,6 @@ const { registryItem } = Astro.props
 // Dynamic import of registry JSON
 let module: RegistryItemSchema;
 try {
-  // @ts-ignore
   module = (await import(`../../../../public/r/${registryItem}.json`)).default as RegistryItemSchema
 } catch (e) {
   console.error(`Failed to load registry item: ${registryItem}`, e)
@@ -51,7 +50,7 @@ function getFileLocationFromType(type: string) {
 }
 
 const filesToCopy = module.files?.map(file => {
-  const pathFromType = getFileLocationFromType(file.type as any)
+  const pathFromType = getFileLocationFromType(file.type)
   return {
     path: file.target ?? `${pathFromType}/${registryItem}.${file.path.split(".").pop()}`,
     displayPath: file.target ?? `${pathFromType}/${file.path.split('/').pop()}`,

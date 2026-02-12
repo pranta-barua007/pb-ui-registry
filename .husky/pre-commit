@@ -1,1 +1,1 @@
-pnpm lint && pnpm build:registry && pnpm build
+NODE_ENV=production pnpm lint && NODE_ENV=production pnpm build:registry && NODE_ENV=production pnpm build
