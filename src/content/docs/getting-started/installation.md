@@ -34,7 +34,7 @@ Follow the prompts to configure shadcn/ui for your project. Make sure to select:
 Install components directly from the registry using their URL:
 
 ```bash
-npx shadcn@latest add https://halp-ui-registry.vercel.app/r/component-name.json
+npx shadcn@latest add https://pranta-barua007.github.io/pb-ui-registry/r/component-name.json
 ```
 
 Replace `component-name` with the actual component you want to install.
@@ -46,7 +46,7 @@ For easier installation, configure the registry in your `components.json`:
 ```json
 {
   "registries": {
-    "halp": "https://halp-ui-registry.vercel.app/r"
+    "halp": "https://pranta-barua007.github.io/pb-ui-registry/r"
   }
 }
 ```
