@@ -3,9 +3,13 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
+import { GITHUB_REPO_NAME, GITHUB_REPO_URL } from 'env';
+
 
 // https://astro.build/config
 export default defineConfig({
+	site: GITHUB_REPO_URL,
+	base: GITHUB_REPO_NAME,
 	integrations: [
 		starlight({
 			title: 'Halp UI Registry',
